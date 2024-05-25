@@ -1,0 +1,39 @@
+# Installation
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+Run the main script to collect articles, perform sentiment analysis, and visualize the results:
+
+```bash
+python main.py
+```
+
+View the generated plots to analyze the sentiment expressed in the articles from different news sources.
+
+## Project Structure
+
+- `main.py`: Main script to run the sentiment analysis project.
+- `data_collection.py`: Module for collecting articles from news sources using the NewsAPI.
+- `preprocessing.py`: Module for preprocessing the collected articles (e.g., cleaning text data).
+- `sentiment_analysis.py`: Module for performing sentiment analysis on the preprocessed articles.
+- `visualization.py`: Module for visualizing the sentiment analysis results.
+
+## Configuration
+
+Update the `main.py` file with your NewsAPI key before running the project.
+
+Update the `data_collection.py` file with the range of dates.
+
+## Dependencies
+
+- Python 3.x
+- NewsAPI Python Client
+- TextBlob
+- Matplotlib
+- Seaborn
