@@ -4,7 +4,7 @@ def collect_articles(api_key):
     url = 'https://newsapi.org/v2/everything'
     params = {
         'q': 'Palestine OR Gaza OR West Bank',  # Search query
-        'sources': 'bbc-news,cnn,al-jazeera-english,fox-news,the-guardian-uk,the-new-york-times,reuters,associated-press,the-washington-post',  # News sources
+        # 'sources': 'bbc-news,cnn,al-jazeera-english,fox-news,the-guardian-uk,the-new-york-times,reuters,associated-press,the-washington-post',  # News sources
         'from': '2024-04-25',  # Start date
         'to': '2024-05-24',  # End date
         'language': 'en',

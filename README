@@ -14,6 +14,12 @@ Run the main script to collect articles, perform sentiment analysis, and visuali
 python main.py
 ```
 
+Run the app script for a user friendly depiction of the sentiment analysis:
+```bash
+python app.py
+```
+Open a browser and connect to localhost:5000 to view the app.
+
 View the generated plots to analyze the sentiment expressed in the articles from different news sources.
 
 ## Project Structure
@@ -37,3 +43,4 @@ Update the `data_collection.py` file with the range of dates.
 - TextBlob
 - Matplotlib
 - Seaborn
+- Flask

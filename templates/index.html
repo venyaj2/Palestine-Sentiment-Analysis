@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2; /* Light grey background */
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .warning {
+            background-color: #ffcccc; /* Light red background for warning */
+            border: 1px solid #ff9999; /* Red border */
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff; /* White background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd; /* Grey border */
+        }
+        th {
+            background-color: #f2f2f2; /* Light grey background for header */
+        }
+        .deep-green {
+            background-color: #2ecc71; /* Deep green */
+        }
+        .light-green {
+            background-color: #a9dfbf; /* Light green */
+        }
+        .yellow {
+            background-color: #ffff00; /* Yellow */
+        }
+        .light-red {
+            background-color: #f5b7b1; /* Light red */
+        }
+        .deep-red {
+            background-color: #e74c3c; /* Deep red */
+        }
+    </style>
+</head>
+<body>
+    <h1>Sentiment Analysis Results</h1>
+    <div class="warning">
+        <p>
+            <strong>Warning:</strong> Negative sentiment does not necessarily indicate bias or inaccuracy. In the context of war and conflict, negative sentiment may reflect the grim realities and challenges faced by affected communities.
+        </p>
+    </div>
+    <p>
+        This table shows the sentiment analysis results for news articles about Palestine.
+        <br>
+        Positive sentiment indicates favorable coverage, neutral sentiment indicates unbiased or neutral coverage, and negative sentiment indicates unfavorable or critical coverage.
+        <br>
+        Understanding the sentiment expressed in these articles can provide insights into the overall depiction of Palestine in the media.
+    </p>
+    <p>Select a news source to view its average sentiment:</p>
+    <form action="/" method="post">
+        <select name="source">
+            {% for source, avg_sentiment in avg_sentiments.items() %}
+                <option value="{{ source }}">{{ source }} (Average Sentiment: {{ avg_sentiment }})</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    <table border="1">
+        <tr>
+            <th>News Source</th>
+            <th>Sentiment Score</th>
+        </tr>
+        {% for source, score, article_url in sentiment_results %}
+        <tr>
+            <td><a href="{{ article_url }}" target="_blank">{{ source }}</a></td>
+            <td class="{% if score > 0.5 %}deep-green{% elif score > 0 %}light-green{% elif score == 0 %}yellow{% elif score > -0.5 %}light-red{% else %}deep-red{% endif %}">{{ score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
